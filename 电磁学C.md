@@ -107,6 +107,64 @@ $$
 \vec{E}=-\nabla U
 $$
 
+证明：
+
+特殊结论：
+
+已知：
+
+$$
+r=\sqrt{x^2+y^2+z^2}
+$$
+
+则：
+
+$$
+\nabla f(r)=\frac{\partial f(r)}{\partial r}\hat{r}
+$$
+
+证明：
+
+$$
+\begin{aligned}
+\nabla f(r)
+&=\frac{\partial f(r)}{\partial x}+ \\
+&=\frac{\partial f(r)}{\partial r}\frac{\partial r}{\partial x}\hat{i}+ \\
+&=\frac{\partial f(r)}{\partial r}(\frac{\partial r}{\partial x}\hat{i}+\frac{\partial r}{\partial y}\hat{j}+\frac{\partial r}{\partial z}\hat{k}) \\
+&=\frac{\partial f(r)}{\partial r}(\frac{x\hat{i}+y\hat{j}
++z\hat{k}}{\sqrt{x^2+y^2+z^2}}) \\
+&=\frac{\partial f(r)}{\partial r}\frac{\vec{r}}{r} \\
+&=\frac{\partial f(r)}{\partial r}\hat{r}
+\end{aligned}
+$$
+
+应用：
+
+证明：
+
+$$
+\vec{E}=-\nabla U
+$$
+
+思路：$\nabla$算符是有明确的导出规则的，故考虑从等式右边往等式左边导出.
+
+$$
+\begin{aligned}
+-\nabla U
+&=-\nabla\sum_{i}\frac{1}{4\pi\varepsilon_0}\frac{q_i}{r_i} \\
+&=-\sum_{i}\frac{1}{4\pi\varepsilon_0}\nabla \frac{q_i}{r_i} \\
+&=-\sum_{i}\frac{1}{4\pi\varepsilon_0}(-\frac{q_i}{r_i^2}\hat{r_i}) \\
+&=\sum_{i}\frac{1}{4\pi\varepsilon_0}\frac{q_i}{r_i^2}\hat{r_i} \\
+&=\sum_{i}\vec{E}_i \\
+&=\vec{E}
+\end{aligned}
+$$
+
+例：
+
+
+
+
 带电体系的静电能：
 
 相互作用能：
@@ -377,6 +435,132 @@ $$
 $$
 R=\int \frac{\rho}{S}dl
 $$
+
+### 电源及其电动势：
+
+恒定电流线必定闭合
+
+对于静电场：
+
+$$
+\oint\vec{E}\cdot\mathrm{d}\vec{l}=0
+$$
+
+在导体中由于存在电阻,
+
+提供非静电力的装置称为电源
+
+用$\vec{K} $表示作用在**单位正电荷**上的非静电力.在电源外部，只有静电场，在电源内部，既有静电场$\vec{E} $,也有非经典力$\vec{K} $.
+
+普遍的欧姆定律微分形式：
+
+$$
+\vec{j}=\sigma(\vec{K}+\vec{E})
+$$
+
+电源都有两个极，电势高的叫正极，电势低的叫负极，非静电力由负极指向正极.
+
+电动势：
+
+一个电源的电动势$\mathscr{E}$定义为,把单位正电荷从负极通过电源内部移到正极时，非静电力所做的功.
+
+$$
+\mathscr{E}
+=\underset{(电源内)}{\int_{-}^{+}} \vec{K}\cdot \mathrm{d}\vec{l}
+$$
+
+一个电源的电动势是反映电源中非静电力做功本领、表征电源本身的特征量，与外电路的性质无关.
+
+对于整个闭合回路上都有非静电力的情形，我们说整个闭合回路的电动势为：
+
+$$
+\mathscr{E}=\underset{(导体回路)}{\oint \vec{K}\cdot\mathrm{d}\vec{l}}
+$$
+
+电源的路端电压
+
+把电源接到电路里，在一般情况下就会有电流$I$通过.
+
+放电：电源内部，电流从负极到正极
+
+充电：电源内部，电流从正极到负极
+
+端电压是静电场力把单位正电荷从正极移到负极所做的功.
+
+$$
+U=U_+-U_-=\int_+^- \vec{E}\cdot\mathrm{d}\vec{l}
+$$
+
+这里路径的选择是任意的.
+
+选择通过电源内部的积分路径：
+
+$$
+\vec{E}=-\vec{K}+\frac{\vec{j}}{\sigma}
+$$
+
+于是：
+
+$$
+U=U_+-U_-
+=
+
+=\mathscr{E}{\mp Ir}
+$$
+
+$Ir$称为电源内阻上的电势降落.
+
+$$
+\begin{cases}
+放电：U=U_+-U_-=\mathscr{E}-Ir \\
+充电：U=U_+-U_-=\mathscr{E}+Ir
+\end{cases}
+$$
+
+上等式两端同乘$I$:
+
+闭合回路的电流和输出功率
+
+闭合回路(全电路)欧姆定律：
+
+$$
+I=\frac{\mathscr{E}}{R+r}
+$$
+
+匹配条件：
+
+### 恒定电路中电荷和静电场的作用
+
+在没有非静电力的地方，恒定电流，
+
+$$
+\oiint_S \vec{j}\cdot\mathrm{d}\vec{S}=0
+$$
+而由欧姆定律微分形式:
+$$
+\vec{j}=\sigma\vec{E}
+$$
+于是：
+$$
+\oiint_S \sigma\vec{E}\cdot\mathrm{d}\vec{S}=0
+$$
+若导体的导电性能是均匀的，进一步有：
+$$
+\oiint_S \vec{E}\cdot\mathrm{d}\vec{S}=0
+$$
+由高斯定理知，恒定电流的条件下，均匀导体内部没有净电荷,电荷只能分布在导体的非均匀处或分界面上.
+
+在恒定条件下，电场线和电流线必须与导体表面平行，否则在电流线指向导体表面的地方将有电荷的持续积累，从而破坏恒定条件.
+
+
+
+
+
+
+
+
+
+
 
 
 
