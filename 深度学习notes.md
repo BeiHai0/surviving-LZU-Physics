@@ -300,8 +300,17 @@ mini-batch 学习
 
 中心差分：
 
+another activate function:
 
+$$
+\tanh (z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}
+$$
 
+性质:$-1$到$1$之间；奇函数
+
+Leaky-Relu:
+
+max(0.01z,z)
 
 
 
