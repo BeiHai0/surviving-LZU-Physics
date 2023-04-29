@@ -2124,7 +2124,11 @@ $$
 E=-k\frac{\mathrm{d}\Phi}{\mathrm{d}t}
 $$
 
-若$\mathrm{d}\Phi$的单位为韦伯，时间$t$的单位用秒，则$k=1$
+若$\mathrm{d}\Phi$的单位为韦伯，时间$t$的单位用秒，则$k=1$，
+
+$$
+E=-\frac{\mathrm{d}\Phi}{\mathrm{d}t}
+$$
 
 其中的负号代表感应电动势的方向
 
@@ -2144,7 +2148,7 @@ $$
 于是总电动势：
 
 $$
-E=-\frac{\mathrm{d}\Psi}{\mathrm{d}t}
+\mathscr{E}=-\frac{\mathrm{d}\Psi}{\mathrm{d}t}
 $$
 
 楞次定律：
@@ -2205,13 +2209,13 @@ $$
 对于图示情况，
 
 $$
-E=Blv
+\mathscr{E}=Blv
 $$
 
 一般来说，
 
 $$
-E=\int_L (\vec{v}\times\vec{B})\cdot\mathrm{d}\vec{l}
+\mathscr{E}=\int_L (\vec{v}\times\vec{B})\cdot\mathrm{d}\vec{l}
 $$
 
 交流发电机：
@@ -2234,7 +2238,9 @@ $$
 $$
 
 $$
-E=\oint \vec{E}_旋\cdot\mathrm{d}\vec{l}
+\mathscr{E}
+=\oint \vec{E}_旋\cdot\mathrm{d}\vec{l}
+=-\frac{\mathrm{d}\Phi}{\mathrm{d}t}
 $$
 
 电磁学的基本方程之一：
@@ -2248,10 +2254,64 @@ $$
 
 电子感应加速器：
 
+使电子维持在恒定圆形轨道上加速，对磁场径向分布的要求：
 
+$$
+evB_R=\frac{mv^2}{R}
+$$
 
+于是：
 
+$$
+mv=ReB_R
+$$
 
+由：
+
+$$
+\oint \vec{E}\cdot\mathrm{d}\vec{l}
+=-\frac{\mathrm{d}\Phi}{\mathrm{d}t}
+$$
+
+即：
+
+$$
+2\pi RE=-\frac{\mathrm{d}\Phi}{\mathrm{d}t}
+$$
+
+于是：
+
+$$
+E=-\frac{1}{2\pi R}\frac{\mathrm{d}\Phi}{\mathrm{d}t}
+$$
+
+由牛二：
+
+$$
+\frac{\mathrm{d}(mv)}{\mathrm{d}t}=-eE=\frac{e}{2\pi R}\frac{\mathrm{d}\Phi}{\mathrm{d}t}
+$$
+
+则：
+
+$$
+\mathrm{d}(mv)=\frac{e}{2\pi R}{\mathrm{d}\Phi}
+$$
+
+设加速过程的开始时，$\Phi=0,$电子的速率$v=0,$上式的积分为：
+
+$$
+mv=\frac{e}{2\pi R}\Phi=\frac{e}{2\pi R}\cdot \pi R^2\bar{B}
+$$
+
+比较，得：
+
+$$
+B_R=\frac{1}{2}\bar{B}
+$$
+
+### 互感和自感
+
+互感：设有两线圈相邻，若其中一个线圈得电流变化，会激发变化得磁场，从而在另一个线圈中产生感应电动势，这种现象称为互感
 
 
 

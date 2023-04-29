@@ -124,4 +124,9 @@ y1=polyval(p,x1)
 plot(x1,y1)
 ```
 
+title("")
+
+xlabel("")
+
+ylabel("")
 
