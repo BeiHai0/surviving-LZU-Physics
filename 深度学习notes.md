@@ -343,3 +343,8 @@ $z_{11}+z_{12}+\cdots+$
 z.sum().backward()
 
 实验证明，确实如此
+
+
+对bias : np.zeros()
+
+对weights : np.random.randn()*0.01 
