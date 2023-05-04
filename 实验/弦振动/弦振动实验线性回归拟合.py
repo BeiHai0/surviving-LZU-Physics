@@ -71,6 +71,7 @@ b = regressor.b
 
 print(f"拟合后线性函数的斜率 : {k}")
 print(f"拟合后线性函数的截距 : {b}")
+print(f"根据数据计算得出的弦线线密度 : { 1/(20*f*f)*np.sum(T / L_n**2) }")
 
 print(f"斜率k与1/2的误差为 : {(k-1/2)*2}")
 print(f"截距b与 -ln ( 2f sqrt(sigma) )的误差为 : \
