@@ -348,3 +348,28 @@ z.sum().backward()
 对bias : np.zeros()
 
 对weights : np.random.randn()*0.01 
+
+$$
+z^{[l]}=W^{[l]}a^{[l-1]}+b^{[l]} \\
+a^{[l]}=g^{[l]}(z^{[l]})
+$$
+
+vectorized:
+
+$$
+Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}~~~(broadcast) \\
+A^{[l]}=g^{[l]}(Z^{[l]})
+$$
+
+
+$$
+W^{[l]}:n^{[l]}\times n^{[l-1]} matrix \\
+b^{[l]}:n^{[l]}\times 1 matrix
+$$
+
+vectorized(presume $m$ samples):
+
+$$
+(l\ne 1)Z^{[l]}:n^{[l]}\times m~~~ matrix \\
+(l\ne 1)A^{[l]}:n^{[l]}\times m~~~ matrix
+$$
