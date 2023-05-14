@@ -2318,7 +2318,118 @@ $$
 
 #### LR电路的暂态过程
 
+**从断开到闭合**：
+
+$$
+\mathscr{E}
+=iR+L\frac{\mathrm{d}i}{\mathrm{d}t}
+$$
+
+结合初始条件，解得：
+
+$$
+i
+=\frac{\mathscr{E}}{R}(1-e^{-\frac{R}{L}t})
+$$
+
+比值 $\frac{L}{R}$ 具有时间的量纲，定义$LR$电路的时间常量：
+
+$$
+\tau=\frac{L}{R}
+$$
+
+$\tau$ 等于电流从 $0$ 增加到恒定值的$63\%$ 所需的时间
+
+$\tau$ 是标志$LR$电路中暂态过程持续时间长短的物理量，$L$越大，$R$越小，则$LR$电路的时间常量$\tau$越大，电流增长得越慢.
+
+**从闭合到断开**：
+
+$$
+-L\frac{\mathrm{d}i}{\mathrm{d}t}=iR
+$$
+
+结合初始条件，解得：
+
+$$
+i=\frac{\mathscr{E}}{R}e^{-\frac{R}{L}t}
+$$
+
 #### RC电路的暂态过程
+
+**从断开到闭合(充电)**：
+
+$$
+\mathscr{E}
+=\frac{q}{C}+iR
+=\frac{q}{C}+R\frac{\mathrm{d}q}{\mathrm{d}t}
+$$
+
+结合初始条件，解得：
+
+$$
+q
+=C\mathscr{E}(1-e^{-\frac{1}{RC}t})
+$$
+
+**从闭合到断开(放电)**：
+
+$$
+R\frac{\mathrm{d}q}{\mathrm{d}t}+\frac{1}{C} q=0
+$$
+
+结合初始条件，解得：
+
+$$
+q
+=C\mathscr{E}(e^{-\frac{1}{RC}t})
+$$
+
+$\tau=RC$ 称为$RC$电路的时间常量
+
+$$
+
+L\frac{\mathrm{d}^2 q}{\mathrm{d}t^2}+R\frac{\mathrm{d}q}{\mathrm{d}t}+\frac{q}{C}
+
+=
+
+\begin{cases}
+
+\mathscr{E} \\
+0
+
+\end{cases}
+
+$$
+
+结合初始条件，微分方程的解为：
+
+$$
+
+$$
+
+阻尼度：
+
+$$
+\lambda
+=\frac{R}{2}\sqrt{\frac{C}{L}}
+$$
+
+过阻尼：$\lambda>1$
+
+临界阻尼：$\lambda=1$
+
+阻尼振荡：$0<\lambda<1$
+
+自由振荡频率：
+$$
+f_0=\frac{1}{2\pi\sqrt{LC}}
+$$
+
+周期：
+
+$$
+T_0=2\pi\sqrt{LC}
+$$
 
 #### LCR电路的暂态过程
 

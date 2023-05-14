@@ -23,3 +23,10 @@ $\substack{a \\ b}$ #写两行
 
 \mathop #转化为数学符号
 
+多个下标：
+
+$$
+\mathop{\mathop{\iint\limits_{x+2y\leqslant z }}\limits_{x>0}}\limits_{y>0}
+$$
+
+$\hbar=\frac{h}{2\pi}$ #狄拉克常数
