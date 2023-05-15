@@ -1,4 +1,8 @@
-库仑定律：
+# 第一章 静电场
+
+## 1.1 静电的基本现象和基本规律
+
+### 库仑定律：
 
 $$
 \vec{F}_{12}=k\frac{q_1q_2}{r_{12}^2}\vec{e}_{12}
@@ -27,16 +31,18 @@ $$
 \vec{F}_{12}=\frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r_{12}^2}\vec{e}_{12}
 $$
 
+### 电场强度
+
 电场的定义：
 $$
 \vec{E}=\frac{\vec{F}}{q_0}=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\vec{e}_r
 $$
 
-电场叠加原理：
+### 电场叠加原理：
 
 例：
 
-半径为$R$的带电细圆环，线密度为$\lambda=\lambda_0\sin\varphi,\lambda_0$是一个正的常数，$\varphi$是半径$R$和$x$轴正方向所成的角，求环心$O$处的电场强度
+半径为 $R$ 的带电细圆环，线密度为 $\lambda=\lambda_0\sin\varphi,\lambda_0$ 是一个正的常数，$\varphi$ 是半径 $R$ 和 $x$ 轴正方向所成的角，求环心$O$处的电场强度
 
 答案：
 
@@ -52,32 +58,45 @@ $$
 
 $$
 \mathrm{d}E
-=
+=\frac{1}{4\pi\varepsilon_0} \frac{\mathrm{d}q}{R^2}
+=\frac{\lambda_0}{4\pi \varepsilon_0 R}\sin\varphi\mathrm{d}\varphi
 $$
 
+由对称性：
+
+$$
+E
+=2\int_{\varphi=0}^{\varphi=\pi} \mathrm{d}E\sin\varphi \mathrm{d}\varphi
+=\frac{2\lambda_0}{4\pi\varepsilon_0 R} \int_{\varphi=0}^{\varphi=\pi}\sin^2\varphi\mathrm{d}\varphi
+=\frac{\lambda_0}{4\varepsilon_0 R}
+$$
+
+考虑方向，得：
+
+$$
+\vec{E}=-\frac{\lambda_0}{4\varepsilon_0 R}\vec{j}
+$$
+
+**电偶极子**：
+
+由一对等量异号点电荷组成的带电体系叫做**电偶极子**.两电荷间的距离 $l$ 远比场点到它们的距离小
 
 
-
-电偶极子：
-
-由一对等量异号点电荷组成的带电体系叫做**电偶极子**.两电荷间的距离$l$远比场点到它们的距离小
-
-
-电偶极矩：
+**电偶极矩**：
 
 $$
 \vec{p}=q\vec{l}
 $$
 
-其中，$\vec{l} $的方向：从负电荷指向正电荷；$\vec{l}$的大小$l$：正负电荷间的距离
+其中，$\vec{l} $ 的方向：从负电荷指向正电荷；$\vec{l}$ 的大小$l$：正负电荷间的距离
 
 近似艺术：
 
 例：
 
-如图()，一对等量异号电荷$\pm q$，其间距为$l$,求：
+如图()，一对等量异号电荷$\pm q$，其间距为 $l$ ,求：
 
-(1)两电荷延长线上一点$P$的场强，$P$到两电荷连线中点的距离为$r$
+(1)两电荷延长线上一点 $P$ 的场强，$P$ 到两电荷连线中点的距离为 $r$
 
 $$
 E_P
@@ -96,7 +115,7 @@ E_P
 =\frac{q}{4\pi\varepsilon_0}\frac{2l}{r^3}
 $$
 
-(2)两电荷连线的中垂面上一点$Q$的场强，$Q$到两电荷连线的距离为$r$
+(2)两电荷连线的中垂面上一点 $Q$ 的场强，$Q$ 到两电荷连线的距离为 $r$
 
 $$
 E_Q
@@ -106,12 +125,18 @@ $$
 近似：当$r\gg l $时，
 
 $$
+
+\begin{aligned}
+
 E_Q
-=\frac{q}{4\pi\varepsilon_0}\frac{l}{(r^2+\frac{l^2}{4})^\frac{3}{2}}
-=\frac{q}{4\pi\varepsilon_0}\frac{l}{(r^2(1+\frac{l^2}{4r^2}))^\frac{3}{2}}
-=\frac{q}{4\pi\varepsilon_0}\frac{l}{r^3(1+\frac{l^2}{4r^2})^\frac{3}{2}}
-\approx \frac{q}{4\pi\varepsilon_0}\frac{l}{r^3(1)^\frac{3}{2}}
-=\frac{q}{4\pi\varepsilon_0}\frac{l}{r^3}
+&=\frac{q}{4\pi\varepsilon_0}\frac{l}{(r^2+\frac{l^2}{4})^\frac{3}{2}} \\
+&=\frac{q}{4\pi\varepsilon_0}\frac{l}{(r^2(1+\frac{l^2}{4r^2}))^\frac{3}{2}} \\
+&=\frac{q}{4\pi\varepsilon_0}\frac{l}{r^3(1+\frac{l^2}{4r^2})^\frac{3}{2}} \\
+&\approx \frac{q}{4\pi\varepsilon_0}\frac{l}{r^3(1)^\frac{3}{2}} \\
+&=\frac{q}{4\pi\varepsilon_0}\frac{l}{r^3}
+
+\end{aligned}
+
 $$
 
 上面用到的近似：当$r\gg l$，
@@ -128,11 +153,20 @@ $$
 \vec{L}=\vec{p}\times\vec{E}
 $$
 
-电场线：
+推导：
+
+$$
+\vec{L}
+=\frac{\vec{l}}{2}\times q\vec{E}+(\frac{-\vec{l}}{2}\times(-q)\vec{E})
+=q\vec{l}\times\vec{E}
+=\vec{p}\times\vec{E}
+$$
+
+### 电场线：
 
 在电场中作出许多曲线，使这些曲线上每一点的切线方向和该点场强方向一致，那么所有这样作出的曲线叫做电场的**电场线**
 
-电场线性质：
+**静电场**电场线性质：
 
 (1)电场线自正电荷(或自无穷远)，止于负电荷(或伸向无穷远)，但不会在没有电荷的地方中断
 
@@ -142,11 +176,15 @@ $$
 
 (4)静电场中的电场线不会形成闭合线
 
-电场强度通量：
+### 电场强度通量：
 
+$$
+\varPhi_E
+=\iint\limits_{S} \vec{E}\cdot\mathrm{d}\vec{S}
+=\iint\limits_{S} E\cos\theta\mathrm{d}S
+$$
 
-
-电场强度通量定义：
+### 电场强度通量定义：
 
 通过一面元$\Delta S$的电场强度通量定义为该点的电场强度的大小$E$与$\Delta S$在垂直于场强方向的投影面积$\Delta S'=\Delta S\cos\theta$的乘积，其中$\theta$是面元的法线方向与场强方向的夹角.注意，面元很小，面上的电场强度在如此小的面上来不及作出很大的变化，以至于在面元上的电场可以看作匀强电场
 
@@ -159,7 +197,9 @@ $$
 \Phi_E=\iint_SE\cos\theta dS
 $$
 
-高斯定理：
+### 高斯定理：
+
+通过任意闭合曲面 $S$ 的电场强度通量 $\varPhi_E$ 等于该面所包围的所有电荷量的代数和 $\sum q$ 除以 $\varepsilon_0,$ 与闭合曲面外的电荷无关.
 
 $$
 \Phi_E=\oiint_SE\cos\theta dS=\frac{1}{\varepsilon_0}\sum_{S内}q_i
@@ -169,9 +209,54 @@ $$
 
 证明：
 
+引理(1)：通过包围点电荷 $q$ 的同心球面的电场强度通量都等于 $\frac{q}{\varepsilon_0}$
+
+证明：
+
+$$
+\varPhi_E
+=4\pi r^2 \frac{1}{4\pi\varepsilon_0} \frac{q}{r^2}
+=\frac{q}{\varepsilon_0}
+$$
+
+引理(2)：通过包围点电荷 $q$ 的任意闭合曲面 $S$ 的电场强度通量都等于 $\frac{q}{\varepsilon_0}.$
+
+证明：
+
+在任意闭合曲面 $S$ 内构造一个以点电荷所在处 $O$ 为球心的球面 $S',$则由引理(1)，通过此球面 $S'$ 的电场强度通量等于 $\frac{q}{\varepsilon_0}.$
+
+记立体角微元 $\mathrm{d}\Omega $ 在任意闭合曲面 $S$ 上截出的面元 $\mathrm{d}S ,$记通过面元$\mathrm{d}S $ 的电场强度通量为 $\mathrm{d}\varPhi_E, $由电场强度通量的定义：
+
+$$
+\mathrm{d}\varPhi_E
+=\frac{1}{4\pi \varepsilon_0}\frac{q}{r^2}\cos\theta\mathrm{d}S
+=\frac{q}{4\pi\varepsilon_0} \frac{(\mathrm{d}S)\cos\theta}{r^2}
+$$
+
+注意到，$\frac{(\mathrm{d}S)\cos\theta}{r^2}=\mathrm{d}\Omega ,$于是：
+
+$$
+\mathrm{d}\varPhi_E
+=\frac{q}{4\pi \varepsilon_0}\mathrm{d}\Omega
+$$
+
+于是：
+
+$$
+\varPhi_E
+=\frac{q}{4\pi \varepsilon_0} \cdot 4\pi
+=\frac{q}{\varepsilon_0}
+$$
+
+引理(3)：在任意闭合曲面 $S$ 外的点电荷通过 $S$ 的电场强度通量为零.
+
+证明：
+
+引理(4)：多个点电荷的电场强度通量等于它们单独存在时的电场强度通量的代数和.
+
 例：
 
-求半径为$R$，带电量为$Q$的，均匀带电球壳内外场强：
+求半径为 $R$，带电量为 $Q$ 的，均匀带电球壳内外场强：
 
 外，$r>R $：由对称性，球壳外某点的电场强度方向与球壳中心和此点连线平行
 
@@ -212,9 +297,11 @@ $$
 
 $$
 
+这个例子说明，均匀带电球壳内的电场为零.
+
 例：
 
-求均匀带电球体内外的电场分布，球体半径为$R$，球体总带电量为$Q$
+求均匀带电球体内外的电场分布，球体半径为 $R$，球体总带电量为 $Q$(暂时先不要管现实中怎样才能得到一个均匀带电球体；当然学了静电屏蔽后再看这题可能怎么也想不通了)
 
 由对称性，球体内外某点$P$的电场方向与$P$和球心$O$的连线共线
 
@@ -240,14 +327,24 @@ $$
 内，$r<R$，取高斯面为球面，则由高斯定理：
 
 $$
+4\pi r^2 E
+=Q(\frac{r}{R})^3
+$$
+
+于是：
 
 $$
+E
+=\frac{Qr}{4\pi R^3}
+$$
+
+这个例子说明，均匀带电球体内部电场强度随离球心距离增加而成正比例增加
 
 
 
 例1.3-6：
 
-半径为$R$的无穷长直圆筒面上均匀带电，沿轴线单位长度的电荷量为$\lambda$.求场强分布
+半径为 $R$ 的无穷长直圆筒面上均匀带电，沿轴线单位长度的电荷量为 $\lambda$ .求场强分布
 
 答案：
 
@@ -260,17 +357,33 @@ E=\frac{\lambda}{2\pi\varepsilon_0 r}&,r>R
 
 $$
 
+解：
+
+$r>R,$取高斯面为一个高为 $h,$底面半径为 $r$ 的闭合圆柱
+
+$$
+2\pi r hE=\frac{1}{\varepsilon_0} h\lambda
+$$
+
+解得：
+
+$$
+E=\frac{\lambda}{2\pi\varepsilon_0 r}
+$$
+
 
 
 例1.3-4：
 
-根据量子理论，氢原子中心是一个带正电$q_e$的原子核(可以看作点电荷)，外面是带负电的电子云.在正常状态(核外电子处在$s$态)下，电子云的电荷密度分布是球对称的：
+根据量子理论，氢原子中心是一个带正电 $q_e$ 的原子核(可以看作点电荷)，外面是带负电的电子云.在正常状态(核外电子处在$s$态)下，电子云的电荷密度分布是球对称的：
 
 $$
 \rho_e(r)=-\frac{q_e}{\pi a_0^3}e^{-\frac{2r}{a_0}}
 $$
 
-其中，$a_0$是一常量.求原子内的电场分布
+其中，$a_0$是一常量. 求原子内的电场分布
+
+思路：积分有点难算，不过思路还是明确的
 
 答案：
 
@@ -281,12 +394,14 @@ $$
 
 
 
-例：1.3-2
+例：1.3-12
 
-三个无限大的平行平面都均匀带电，电荷面密度分别为$\sigma_{e1},\sigma_{e2},\sigma_{e3} ,$
+三个无限大的平行平面都均匀带电，电荷面密度分别为 $\sigma_{e1},\sigma_{e2},\sigma_{e3} ,$求下列各种情形下各处的场强.
+
+(1) (2) (3) (4)
 
 
-一个厚度为$b$的无限大带电平板，其电荷体密度为：$\rho_e=kx(0\leqslant x\leqslant b),k$为正的常数
+一个厚度为 $b$ 的无限大带电平板，其电荷体密度为 : $\rho_e=kx(0\leqslant x\leqslant b),k$为正的常数
 
 (1)求平板外两侧任意点$P_1,P_2$的场强大小
 
