@@ -1,4 +1,4 @@
-# 第一章 静电场
+ # 第一章 静电场
 
 ## 1.1 静电的基本现象和基本规律
 
@@ -383,7 +383,70 @@ $$
 
 其中，$a_0$是一常量. 求原子内的电场分布
 
-思路：积分有点难算，不过思路还是明确的
+思路：积分有点难算(可以用待定系数法求此类积分)，不过思路还是明确的
+
+解：
+
+$$
+4\pi r^2 E
+=\frac{1}{\varepsilon_0}(q_e+\int_0^r 4\pi r^2\rho_e(r) \mathrm{d}r)
+$$
+
+于是：
+
+$$
+E
+=\frac{q_e}{4\pi\varepsilon_0 r^2}(1-\frac{4}{a_0^3}\int_0^r r^2 e^{-\frac{2r}{a_0}}\mathrm{d}r)
+$$
+
+为求解积分，由经验，设：
+
+$$
+\bigg((Ar^2+Br+C)e^{-\frac{2r}{a_0}}\bigg)'
+=r^2 e^{-\frac{2r}{a_0}}
+$$
+
+即：
+
+$$
+\bigg(-\frac{2A}{a_0}r^2+(2A-\frac{2B}{a_0})r+B-\frac{2C}{a_0}\bigg)e^{-\frac{2r}{a_0}}
+=r^2e^{-\frac{2r}{a_0}}
+$$
+
+对应项系数相等，解方程组：
+
+$$
+\begin{cases}
+
+-\frac{2A}{a_0}=1 \\
+2A-\frac{2B}{a_0}=0 \\
+B-\frac{2C}{a_0}=0
+
+\end{cases}
+$$
+
+解得：
+
+$$
+A=-\frac{a_0}{2} \\[2mm]
+B=-\frac{a_0^2}{2} \\[2mm]
+C=-\frac{a_0^3}{4}
+$$
+
+于是：
+
+$$
+
+\begin{aligned}
+
+E
+&=\frac{q_e}{4\pi\varepsilon_0 r^2}(1-\frac{4}{a_0^3}\int_0^r r^2 e^{-\frac{2r}{a_0}}\mathrm{d}r) \\
+&=\frac{q_e}{4\pi\varepsilon_0 r^2}\bigg(1-\frac{4}{a_0^3}(-\frac{a_0}{2}r^2-\frac{a_0^2}{2}r-\frac{a_0^3}{4})e^{-\frac{2r}{a_0}}\bigg|_0^r \bigg) \\
+&=\frac{q_e}{4\pi\varepsilon_0 r^2}(\frac{2}{a_0^2}r^2+\frac{2}{a_0}r+1)e^{-\frac{2r}{a_0}}
+
+\end{aligned}
+
+$$
 
 答案：
 
@@ -403,7 +466,25 @@ $$
 
 一个厚度为 $b$ 的无限大带电平板，其电荷体密度为 : $\rho_e=kx(0\leqslant x\leqslant b),k$为正的常数
 
-(1)求平板外两侧任意点$P_1,P_2$的场强大小
+(1)求平板外两侧任意点 $P_1,P_2$ 的场强大小
+
+思路：题目可没说是“金属带电平板”；带电平板电荷体密度不均匀，但我们可以用微元法，极薄的平板周围的电场分布我们是清楚的，再积分即可.
+
+解：
+
+厚度为 $b$ 的无限大带电平板可分割成大量薄平板，每个薄平板的电荷体密度可看作是均匀的，由均匀带电平板周围的电场分布及电场叠加原理知，整个厚度为 $b$ 的无限大带电平板左右两侧电场强度大小处处相等，于是由高斯定理：
+
+$$
+2\Delta S E
+=\frac{1}{\varepsilon_0}\int_0^b kx\Delta S \mathrm{d}x
+=\frac{1}{\varepsilon_0} k\Delta S\frac{b^2}{2}
+$$
+
+解得：
+
+$$
+E=\frac{kb^2}{4\varepsilon_0}
+$$
 
 答案：
 $$
@@ -411,6 +492,23 @@ E_外=\frac{k b^2}{4\varepsilon_0}
 $$
 
 (2)求平板内任一点$P$的电场强度
+
+思路：在第一问的基础上，我们现在可以把高斯面的一部分取在平板内了
+
+解：
+
+$$
+-E_{内}\Delta S+E_{外}\Delta S
+=\frac{1}{\varepsilon_0}\int_x^b kx\Delta S\mathrm{d}x
+=\frac{1}{\varepsilon_0}k\Delta S \frac{b^2-x^2}{2}
+$$
+
+解得：
+
+$$
+E_{内}
+=\frac{k}{2\varepsilon_0}(x^2-\frac{b^2}{2}),~~~~~~(0\leqslant x\leqslant b)
+$$
 
 答案：
 $$
@@ -421,13 +519,78 @@ $$
 
 答案：
 
+解：
+
+令 $E_{内}=0,$解得：
+
+$$
+x=\frac{b}{\sqrt{2}}
+$$
+
+答案：
+
 $$
 x=\frac{b}{\sqrt{2}}
 $$
 
 例：
 
-一无限大平面，中部有一半径为$R$的圆孔，设平面上均匀带电，电荷面密度为$\sigma_e,$求通过小孔中心$O$且与平面垂直的直线上某点$P$的场强和电势(设小孔中心$O$的电势为零)
+一无限大平面，中部有一半径为 $R$ 的圆孔，设平面上均匀带电，电荷面密度为 $\sigma_e,$求通过小孔中心 $O$ 且与平面垂直的直线上某点 $P$ 的场强和电势(设小孔中心$O$的电势为零)
+
+解：
+
+假设有一块完整的无限大均匀带电平面，其可被人为分为两部分：一个实心圆和除圆以外的部分.设完整平板所产生的电场为 $\vec{E}_{total},$实心圆产生的电场为 $\vec{E}_{o},$除实心圆外部分产生的电场为 $\vec{E},$则由电场叠加原理，有：
+
+$$
+\vec{E}_{total}=\vec{E}_o+\vec{E}
+$$
+
+于是：
+
+$$
+\vec{E}=\vec{E}_{total}-\vec{E}_o
+$$
+
+这就是说，若想求无限大均匀带电平板除实心圆以外部分产生的电场，只要求出整个平板产生的电场，再减去实心圆产生电场即可.
+
+由高斯定理，有：
+
+$$
+2\Delta SE_{total}=\frac{1}{\varepsilon_0}\Delta S\sigma_e
+$$
+
+解得：
+
+$$
+E_{total}=\frac{\sigma_e}{2\varepsilon_0}
+$$
+
+下面求实心圆产生的电场 $E_o:$
+
+$$
+E_o
+=\int_0^R \frac{1}{4\pi\varepsilon_0}\frac{2\pi\sigma_e r\frac{x}{\sqrt{x^2+r^2}} }{r^2+x^2}\mathrm{d}r 
+=\frac{\sigma_e}{2\varepsilon_0}\int_0^R\frac{\frac{r}{x}}{(1+(\frac{r}{x})^2)^\frac{3}{2}}\mathrm{d}(\frac{r}{x})
+=\frac{\sigma_e}{2\varepsilon_0}\cdot (-\frac{1}{\sqrt{1+(\frac{r}{x})^2}}) \bigg|_0^R
+=\frac{\sigma_e}{2\varepsilon_0}(1-\frac{x}{R^2+x^2})
+$$
+
+由于题目假定小孔中心电势为令，故：
+
+$$
+U
+=\int \vec{E}\cdot\mathrm{d}\vec{l}
+=\int_0^x 
+$$
+
+于是：
+
+$$
+E
+=E_{total}-E_{o}
+=\frac{\sigma_e}{2\varepsilon_0}\frac{x}{\sqrt{R^2+x^2}}
+$$
+
 
 答案：
 
@@ -442,7 +605,7 @@ $$
 
 
 
-静电场力做功与路径无关
+**静电场力**做功与路径无关
 
 证明：
 
@@ -466,7 +629,7 @@ $$
 
 
 
-静电场的环路定理：
+**静电场**的环路定理：
 $$
 \oint_L\vec{E}\cdot d\vec{l}=0
 $$
@@ -2590,10 +2753,42 @@ $$
 \vec{i}'-\vec{M}\times\vec{n}
 $$
 
+磁场强度矢量：
+
+$$
+\vec{H}=\frac{\vec{B}}{\mu_0}-\vec{M}
+$$
+
+安培环路定理可改写为：
+
+$$
+\oint_L \vec{H}\cdot\mathrm{d}\vec{l}=\sum_{(L内)}I_0
+$$
 
 ### 等效的磁荷观点 
 
 ### 介质的磁化规律
+
+磁化率：
+
+$$
+\chi_m=\frac{M}{H}
+$$
+
+$$
+\mu=1+\chi_m
+$$
+
+
+磁导率：
+
+顺磁性：$\chi_m>0$
+
+抗磁性：$\chi_m<0$
+
+
+
+
 
 ### 边界条件 磁路定理
 

@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-plt.rcParams["font.sans-serif"]=["SimHei"] #设置字体
-plt.rcParams["axes.unicode_minus"]=False #该语句解决图像中的“-”负号的乱码问题
+plt.rcParams["font.sans-serif"]=["SimHei"] # 设置字体
+plt.rcParams["axes.unicode_minus"]=False # 该语句解决图像中的“-”负号的乱码问题
 
 class Linear_Regression:
     def __init__(self, X, Y):
