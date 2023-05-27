@@ -30,6 +30,13 @@ class Linear_Regression:
         J = (1 / (2*m)) * (np.sum((Y_pred - self.Y)*(Y_pred - self.Y)))
         return J
     
+
+def u_A(array, N):
+    average = np.average(array)
+    u_A = np.sqrt( np.sum( (array-average)**2 ) / ( N*(N-1) ) )
+    return u_A
+    
+
 # 实验原始数据
 
 m_0 = 0.5 * 1e-3 # 单个砝码质量 单位:kg 
@@ -38,9 +45,9 @@ m = np.array([0.5, 1.0, 1.5, 2.0, 2.5, 3.0]) * 1e-3 # 累加砝码质量 单位:
 
 U_V = np.array([14.0, 28.1, 41.7, 56.2, 70.9, 84.6 ]) * 1e-3 # 与砝码对应的电压 单位: V
 
-D_1 = np.array([33.10, 33.20, 33.18, 33.16, 33.16]) * 1e-3 # 圆环内径 单位: m
+D_2 = np.array([33.10, 33.20, 33.18, 33.16, 33.16]) * 1e-3 # 圆环内径 单位: m
 
-D_2 = np.array([34.80, 34.72, 34.82, 34.72, 34.72, 34.68]) * 1e-3 # 圆环外径 单位: m
+D_1 = np.array([34.80, 34.72, 34.82, 34.72, 34.72, 34.68]) * 1e-3 # 圆环外径 单位: m
 
 U_1 = np.array([7.0, 7.2, 7.1, 7.3, 7.0]) * 1e-3 # U_1 单位: V
 
@@ -85,6 +92,22 @@ print(f"D_2_bar:{D_2_bar}")
 
 sigma_bar = delta_U_bar / ( np.pi * k_bar * (D_1_bar + D_2_bar) ) 
 print(f"sigma_bar:{sigma_bar}")
+
+u_A_D_1 = u_A(D_1, 6)
+u_B_D_1 = 2e-5 / np.sqrt(3)
+u_D_1 = np.sqrt(u_A_D_1**2 + u_B_D_1**2)
+
+u_A_D_2 = u_A(D_2, 6)
+u_B_D_2 = 2e-5 / np.sqrt(3)
+u_D_2 = np.sqrt(u_A_D_2**2 + u_B_D_2**2)
+
+print(f"u_A of D_1:{u_A_D_1}")
+print(f"u_B of D_1:{u_B_D_1}")
+print(f"u of D_1:{u_D_1}")
+
+print(f"u_A of D_2:{u_A_D_2}")
+print(f"u_B of D_2:{u_B_D_2}")
+print(f"u of D_1:{u_D_2}")
 
 
 
