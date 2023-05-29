@@ -3006,9 +3006,37 @@ $$
 
 界面两侧磁感应线与法线夹角的正切之比等于两侧磁导率之比
 
+磁路：磁感应管
+
+由磁场得高斯定理，通过铁芯各个截面的磁通量 $\varPhi_B$ 近似相同
+
 磁路定理：
 
+$$
+NI_0
+=\oint\limits_L \vec{H}\cdot\vec{l}
+=\sum_i H_il_i
+=\sum_i \frac{B_il_i}{\mu_0\mu_i}
+=\sum_i \frac{\varPhi_B l_i}{\mu_0\mu_i S_i}
+=\varPhi_B\sum_i\frac{l_i}{\mu_0\mu_iS_i}
+$$
 
+磁动势：$\mathscr{E}_m=NI_0$
+
+磁阻：$R_{mi}=\frac{l_i}{\mu_0\mu_i S_i}$
+
+磁势降落：$H_il_i=\varPhi_B R_{mi}$
+
+磁路定理：
+
+$$
+\mathscr{E}_m
+=\sum_i H_il_i=\varPhi_B\sum_i R_{mi}
+$$
+
+其中，$\mathscr{E}_m=NI_0,R_{mi}=\frac{l_i}{\mu_0\mu_i S_i}$
+
+文字表述：闭合磁路的磁动势等于各段磁路上的磁势降落和.
 
 
 ### 磁场的能量和能量密度
@@ -3280,5 +3308,101 @@ $$
 
 
 
+# 麦克斯韦电磁理论和电磁波
 
+由库仑定律和场强叠加原理可得出静电场的两条重要定理：
+
+电场的高斯定理：
+
+$$
+\iint\limits_S \vec{D}\cdot\mathrm{d}\vec{S}=q_0
+$$
+
+静电场的环路定理：
+
+$$
+\oint\limits_L \vec{E}\cdot\mathrm{d}\vec{l} =0
+$$
+
+由毕奥-萨伐尔定律可以得出恒定磁场的两条重要定理：
+
+磁场的高斯定理：
+
+$$
+\oiint\limits_S \vec{B}\cdot\mathrm{d}\vec{S}=0
+$$
+
+安培环路定理：
+
+$$
+\oint\limits_L \vec{H}\cdot\mathrm{d}\vec{l}=I_0
+$$
+
+磁场变化时的电磁感应定律：
+
+法拉第电磁感应定律：
+
+$$
+\mathscr{E}=-\frac{\mathrm{d}\varPhi}{\mathrm{d}t}
+$$
+
+在普遍情形下，电场的环路定理是：
+
+$$
+\oint\limits_L \vec{E}\cdot\mathrm{d}\vec{l}
+=-\iint\limits_S \frac{\partial \vec{B}}{\partial t}\cdot\mathrm{d}\vec{S}
+$$
+
+在传导电流非恒定的情况下安培环路定理不成立.
+
+在传导电流非恒定情况下，有电流连续性原理：
+
+$$
+\oiint\limits_S \vec{j}_0\cdot\mathrm{d}\vec{S}
+=-\frac{\mathrm{d}q_0}{\mathrm{d}t}
+$$
+
+$q_0$ 是积累在 $S$ 面内的自由电荷.
+
+由高斯定理： $\iint\limits_S \vec{D}\cdot\mathrm{d}\vec{S}=q_0$，有：
+
+$$
+\frac{\mathrm{d}q_0}{\mathrm{d}t}
+=\frac{\mathrm{d}}{\mathrm{d}t}\oiint\limits_S \vec{D}\cdot\mathrm{d}\vec{S}
+=\oiint\limits_S \frac{\partial \vec{D}}{\partial t}\cdot\mathrm{d}\vec{S}
+$$
+
+于是：
+
+$$
+\oiint\limits_S \vec{j}_0\cdot\mathrm{d}\vec{S}
+=-\oiint\limits_S \frac{\partial \vec{D}}{\partial t}\cdot\mathrm{d}\vec{S}
+$$
+
+或：
+
+$$
+\oiint\limits_S (\vec{j}_0+\frac{\partial \vec{D}}{\partial t})\cdot\mathrm{d}\vec{S}
+=0
+$$
+
+或：
+
+定义电位移通量：
+
+$$
+\varPhi_D
+=\iint\limits_S \vec{D}\cdot\mathrm{d}\vec{S}
+$$
+
+两边同时对时间求导：
+
+$$
+\frac{\mathrm{d}\varPhi_D}{\mathrm{d}t}
+=\iint\limits_S\frac{\partial \vec{D}}{\partial t}\cdot\mathrm{d}\vec{Ss}
+$$
+
+$\frac{\mathrm{d}\varPhi_D}{\mathrm{d}t} $ 称为位移电流，$\frac{\partial \vec{D}}{\partial t} $ 称为位移电流密度.
+
+全电流在任何情况下都是相等的.
 

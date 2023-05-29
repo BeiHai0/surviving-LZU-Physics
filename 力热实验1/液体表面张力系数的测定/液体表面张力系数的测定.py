@@ -31,9 +31,9 @@ class Linear_Regression:
         return J
     
 
-def u_A(array, N):
+def u_A(array, N, t):
     average = np.average(array)
-    u_A = np.sqrt( np.sum( (array-average)**2 ) / ( N*(N-1) ) )
+    u_A = np.sqrt( np.sum( (array-average)**2 ) / ( N*(N-1) ) ) * t
     return u_A
     
 
@@ -51,7 +51,7 @@ D_1 = np.array([34.80, 34.72, 34.82, 34.72, 34.72, 34.68]) * 1e-3 # 圆环外径
 
 U_1 = np.array([7.0, 7.2, 7.1, 7.3, 7.0]) * 1e-3 # U_1 单位: V
 
-U_2 = np.array([-39.0, -38.8, -36.8, -38.8, -38.9]) * 1e-3 # U_2 单位: V
+U_2 = np.array([-39.0, -38.8, -38.8, -38.8, -38.9]) * 1e-3 # U_2 单位: V
 
 # 计算
 
@@ -60,8 +60,14 @@ g = 9.793 # 重力加速度 单位: m/s^2
 delta_U = U_1 -U_2
 
 delta_U_bar = np.average(delta_U)
+u_A_delta_U = np.sqrt( np.sum((delta_U - delta_U_bar)**2) ) / np.sqrt(5*4) * 1.14
+u_B_delta_U = 1e-4 / np.sqrt(3)
+u_delta_U = np.sqrt(u_A_delta_U**2 + u_B_delta_U**2)
 
 print(f"delta_U_bar:{delta_U_bar}")
+print(f"u_A of delta_U:{u_A_delta_U}")
+print(f"u_B of delta_U:{u_B_delta_U}")
+print(f"u of delta_U:{u_delta_U}")
 
 learning_rate = 1e-2
 
@@ -93,11 +99,13 @@ print(f"D_2_bar:{D_2_bar}")
 sigma_bar = delta_U_bar / ( np.pi * k_bar * (D_1_bar + D_2_bar) ) 
 print(f"sigma_bar:{sigma_bar}")
 
-u_A_D_1 = u_A(D_1, 6)
+t = 1.11 # t因子，计算A类不确定度时用到
+
+u_A_D_1 = u_A(D_1, 6, t)
 u_B_D_1 = 2e-5 / np.sqrt(3)
 u_D_1 = np.sqrt(u_A_D_1**2 + u_B_D_1**2)
 
-u_A_D_2 = u_A(D_2, 6)
+u_A_D_2 = u_A(D_2, 6, t)
 u_B_D_2 = 2e-5 / np.sqrt(3)
 u_D_2 = np.sqrt(u_A_D_2**2 + u_B_D_2**2)
 
@@ -108,6 +116,12 @@ print(f"u of D_1:{u_D_1}")
 print(f"u_A of D_2:{u_A_D_2}")
 print(f"u_B of D_2:{u_B_D_2}")
 print(f"u of D_1:{u_D_2}")
+
+u_sigma = sigma_bar * np.sqrt( (u_delta_U/delta_U_bar)**2 + (u_D_1**2+u_D_2**2)/(D_1_bar + D_2_bar)**2 )
+print(f"u of sigma:{u_sigma}")
+
+
+
 
 
 
