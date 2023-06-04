@@ -3059,6 +3059,16 @@ $$
 
 任何非简谐的交流电都可分解为一系列不同频率的简谐成分
 
+简谐交流电的任何变量[电动势 $e(t)$、电压 $u(t)$、电流 $i(t)$]都可以写成时间 $t$ 的正弦或余弦函数的形式，我们采用余弦函数的形式：
+
+$$
+\begin{cases}
+e(t)=\mathscr{E}_0\cos(\omega t+\varphi_e) \\
+u(t)=U_0\cos(\omega t+\varphi_u) \\
+i(t)=I_0\cos(\omega t+\varphi_i)
+\end{cases}
+$$
+
 ### 峰值
 
 ### 有效值
@@ -3085,6 +3095,67 @@ $$
 \varphi=0
 $$
 
+交流电路中的电容：
+
+$$
+Z_C=\frac{1}{\omega C}
+$$
+
+$$
+\varphi
+=\varphi_u-\varphi_i
+=-\frac{\pi}{2}
+$$
+
+推导：
+
+设电容器极板上的电荷是如下关于时间的余弦函数： $q(t)=Q_0\cos\omega t$
+
+计算：
+
+$$
+i(t)
+=\frac{\mathrm{d}q(t)}{\mathrm{d}t}
+=-Q_0\omega\sin\omega t
+$$
+
+为了比较计算电压与电流的相位差，我们需要把电流、电压都化成余弦函数的形式，这可以通过三角函数诱导公式实现.
+
+$$
+i(t)
+=-Q_0\omega\sin\omega t
+=Q_0\omega\cos(\omega t+\frac{\pi}{2})
+$$
+
+于是得到：$I_0=Q_0\omega,\varphi_i=\frac{\pi}{2}$
+
+再由电容定义计算电压 $u(t):$
+
+$$
+u(t)
+=\frac{q(t)}{C}
+=\frac{Q_0}{C}\cos\omega t
+$$
+
+于是得到：$U_0=\frac{Q_0}{C},\varphi_u=0$
+
+由上可得：
+
+$$
+Z_C
+=\frac{U_0}{I_0}
+=\frac{\frac{Q_0}{C}}{Q_0\omega}
+=\frac{1}{\omega C}
+$$
+
+$$
+\varphi
+=\varphi_u-\varphi_i
+=0-\frac{\pi}{2}
+=-\frac{\pi}{2}
+$$
+
+这就是说，对于电容元件，电压落后电流 $\frac{\pi}{2}$ 相位
 
 交流电路中的电容：
 
@@ -3109,6 +3180,56 @@ $$
 =\varphi_u-\varphi_i
 =\frac{\pi}{2}
 $$
+
+推导：
+
+自感电动势为：
+
+$$
+e_L=-L\frac{\mathrm{d}i}{\mathrm{dt}}
+$$
+
+若认为电感的电阻为零，则：
+
+$$
+u(t)
+=-e_L
+=L\frac{\mathrm{d}i(t)}{\mathrm{d}t}
+$$
+
+设：$i(t)=I_0\cos\omega t$，则：$\varphi_i=0$
+
+计算：
+
+$$
+U(t)
+=L\frac{\mathrm{d}i(t)}{\mathrm{d}t}
+=-LI_0 \omega\sin\omega t
+=LI_0\omega\cos(\omega t+\frac{\pi}{2})
+$$
+
+于是：$\varphi_u=\frac{\pi}{2}$
+
+最终得到：
+
+$$
+Z_L
+=\frac{U_0}{I_0}
+=\frac{LI_0 \omega}{I_0}
+=\omega L
+$$
+
+$$
+\varphi
+=\varphi_u-\varphi_i
+=\frac{\pi}{2}-0
+=\frac{\pi}{2}
+$$
+
+这就是说，对于电感元件，电压超前电流 $\frac{\pi}{2}$ 相位.
+
+
+
 
 元件的串联和并联
 
@@ -3188,23 +3309,25 @@ $$
 
 $$
 \tilde{U}
-=U_0e^{\mathrm{i}(\omega t+\varphi_u)}
+=U_0e^{\mathrm{j}(\omega t+\varphi_u)}
 $$
 
 $$
 \tilde{I}
-=I_0e^{\mathrm{i}(\omega t+\varphi_i)}
+=I_0e^{\mathrm{j}(\omega t+\varphi_i)}
 $$
 
 $$
 \tilde{Z}
-=Ze^{\mathrm{i}\varphi} 
+=Ze^{\mathrm{j}\varphi} 
 $$
 
 $$
 \tilde{Z}
 =\frac{\tilde{U}}{\tilde{I}}
 $$
+
+一个元件的复阻抗给出了此元件的阻抗和相位信息
 
 电阻的复阻抗：
 
@@ -3216,7 +3339,7 @@ $$
 
 $$
 \tilde{Z}_C
-=\frac{1}{\mathrm{i}\omega C}
+=\frac{1}{\mathrm{j}\omega C}
 $$
 
 
@@ -3224,7 +3347,7 @@ $$
 
 $$
 \tilde{Z}_L
-=\mathrm{i}\omega L
+=\mathrm{j}\omega L
 $$
 
 串联电路复阻抗公式：
@@ -3233,6 +3356,8 @@ $$
 \tilde{Z}
 =\tilde{Z}_1+\tilde{Z}_2
 $$
+
+$\tilde{Z}_R $ 为正实数，$\tilde{Z}_C$ 为负虚数，$\tilde{Z}_L $ 为正虚数
 
 并联电路复阻抗公式：
 
@@ -3405,4 +3530,55 @@ $$
 $\frac{\mathrm{d}\varPhi_D}{\mathrm{d}t} $ 称为位移电流，$\frac{\partial \vec{D}}{\partial t} $ 称为位移电流密度.
 
 全电流在任何情况下都是相等的.
+
+将安培环路定理推广到非恒定情形：
+
+$$
+\oint\limits_L \vec{H}\cdot\mathrm{d}\vec{l}
+=I_0+\frac{\mathrm{d}\varPhi_D}{\mathrm{d}t}
+$$
+
+在电介质中，$\vec{D}=\varepsilon_0\vec{E}+\vec{P} $
+
+注意到，
+
+$$
+\frac{\mathrm{d}\varPhi_D}{\mathrm{d}t}
+=\frac{\mathrm{d}}{\mathrm{d} t}\iint\limits_S \vec{D}\cdot\mathrm{d}\vec{S}
+=\iint\limits_S\frac{\partial \vec{D}}{\partial t}\cdot\mathrm{d}\vec{S}
+=\varepsilon_0\iint\limits_S\frac{\partial\vec{E}}{\partial t}\cdot\mathrm{d}\vec{S}+\iint\limits_S\frac{\partial\vec{P}}{\partial t}\cdot\mathrm{d}\vec{S}
+$$
+
+注意到，$\oiint\limits_S\vec{P}\cdot\mathrm{d}\vec{S} =-q'$
+
+于是：
+
+$$
+\oiint\limits_S\frac{\partial\vec{P}}{\partial t}\cdot\mathrm{d}\vec{S}
+=\frac{\mathrm{d}}{\mathrm{d}t}\oiint\limits_S\vec{P}\cdot\mathrm{d}\vec{S}
+=-\frac{\mathrm{d}q'}{\mathrm{d}t}
+$$
+
+而极化电荷的连续性方程为：
+
+$$
+\oiint\limits_S \vec{j}_P\cdot\mathrm{d}\vec{S}
+=-\frac{dq'}{\mathrm{d}t}
+$$
+
+于是：
+
+$$
+\oiint\limits_S\frac{\partial\vec{P}}{\partial t}\cdot\mathrm{d}\vec{S}
+=\oiint\limits_S \vec{j}_P\cdot\mathrm{d}\vec{S}
+$$
+
+麦克斯韦方程组积分形式：
+
+$$
+
+$$
+
+
+
 

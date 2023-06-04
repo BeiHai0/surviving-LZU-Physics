@@ -33,3 +33,4 @@ $\hbar=\frac{h}{2\pi}$ #狄拉克常数
 
 $\Longleftrightarrow$ #等价于
 
+$\perp$
