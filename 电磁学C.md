@@ -3417,7 +3417,21 @@ $$
 
 电流的有功分量(有功电流)：
 
-电流的无功分量(无功电流)
+$$
+I_{\parallel}=I\cos\varphi
+$$
+
+电流的无功分量(无功电流):
+
+$$
+I_{\perp}=I\sin\varphi
+$$
+
+$$
+\bar{P}
+=UI\cos\varphi
+=UI_{\parallel}
+$$
 
 视在功率(表观功率)：
 
@@ -3430,32 +3444,128 @@ $$
 =S\cos\varphi
 $$
 
+无功功率：
+
+$$
+P_{无功}
+=UI_{\perp}
+=UI\sin\varphi
+=S\sin\varphi
+$$
+
+有功功率：
+
+$$
+P_{有功}
+=\bar{P}
+=UI_{\parallel}
+=UI\cos\varphi
+=S\cos\varphi
+$$
+
+$$
+S
+=\sqrt{P_{有功}^2 +P_{无功}^2}
+$$
+
 有功电阻和电抗：
+
+一个电路的复阻抗：
 
 $$
 \tilde{Z}
-=r+\mathrm{i}x
+=Ze^{\mathrm{j}\varphi}
+=r+\mathrm{j}x
 $$
 
-$r$ 称为有功电阻，$x$ 称为电抗.
+实部 $r$ 称为有功电阻，虚部 $x$ 称为电抗.
 
 容抗和感抗：
 
 负的电抗称为容抗，正的电抗称为感抗
+
+物理意义：
+
+$\tilde{Z}=Ze^{\mathrm{j}\varphi}=Z\cos\varphi+\mathrm{j}Z\sin\varphi=r+\mathrm{j}x$
+
+$$
+S=UI=I^2 Z\\
+P_{有功}=UI\cos\varphi=ZI^2\cos\varphi=I^2r \\
+P_{无功}=UI\sin\varphi=ZI^2\sin\varphi=I^2 x
+$$
+
+例(p208例3)：
+
+思路：若无磁芯损耗，电感的阻抗为 $Z_L=\omega L,$ 相位为 $\varphi=\frac{\pi}{2},$ 这两个信息可以用一个复阻抗来传达，即无磁芯损耗的电感的复阻抗为 $\tilde{Z}_L=\omega L e^{\mathrm{j}\frac{\pi}{2}}=\mathrm{j}\omega L.$ 但若有了磁芯损耗，相当于原本只有电感 $L$ 的电路部分不再纯粹只有 $L$ 了.此时的电路的复阻抗记为 $\tilde{Z}=r+\mathrm{j}x ,$ 损耗只贡献了电路复阻抗的有功电阻 $r$ 部分，而电感的电抗只贡献了无功电阻 $x$ 部分
+
+解：
+
+先求非纯粹部分得复阻抗，具体来说要求阻抗和相位，并整合成复阻抗. 阻抗可由欧姆定律求得，相位可由矢量图求得.
+
+由矢量图，得：
+
+$$
+\varphi=\frac{\pi}{3}
+$$
+
+由欧姆定律，有：
+
+$$
+U_1=IR \\
+U_2=IZ
+$$
+
+解得：$Z=40\Omega$
+
+于是非纯粹电路部分得复阻抗为：
+
+$$
+\tilde{Z}
+=Ze^{\mathrm{j}\varphi}
+=20+\mathrm{j}20\sqrt{3}
+$$
+
+由上面结论，非纯粹部分的无功电阻只由电感的感抗贡献，即：
+
+$$
+20\sqrt{3}
+=\omega L
+=2\pi fL
+$$
+
+解得：$L$
+
+
+
 
 品质因数：
 
 $$
 Q
 =\frac{P_{无功}}{P_{有功}}
+=\frac{I^2 x}{I^2 r}
+=\frac{x}{r}
 $$
 
-损耗角和耗散因数：
+损耗角 $\delta$ 和耗散因数 $\tan\delta $：
 
+$$
+\delta
+=\frac{\pi}{2}-\varphi
 $$
 
 $$
+\tan\delta
+=\frac{P_{有功}}{P_{无功}}
+=\frac{r}{x}
+$$
 
+$$
+\tan\delta
+=\frac{1}{Q}
+$$
+
+$\delta$ 和 $\tan\delta$ 越大，表示损耗越大
 
 
 # 麦克斯韦电磁理论和电磁波
@@ -3601,9 +3711,28 @@ $$
 麦克斯韦方程组积分形式：
 
 $$
-
+\begin{cases}
+\oiint\limits_S\vec{D}\cdot\mathrm{d}\vec{S}
+=q_0 \\
+\oint\limits_L \vec{E}\cdot\mathrm{d}\vec{l}
+=-\iint\frac{\partial \vec{B}}{\partial t}\cdot\mathrm{d}\vec{S} \\
+\oiint\limits_S\vec{B}\cdot\mathrm{d}\vec{S}
+=0 \\
+\oint\limits_L \vec{H}\cdot\mathrm{d}\vec{l}
+=I_0+\iint \frac{\partial \vec{D}}{\partial t}\cdot\mathrm{d}\vec{S}
+\end{cases}
 $$
 
+麦克斯韦方程组微分形式：
+
+$$
+\begin{cases}
+\nabla\cdot\vec{D}=\rho_{e0} \\
+\nabla\times\vec{E}=-\frac{\partial \vec{B}}{\partial t} \\
+\nabla\cdot \vec{B}=0 \\
+\nabla \times\vec{H}=\vec{j}_0+\frac{\partial\vec{D}}{\partial t}
+\end{cases}
+$$
 
 
 
