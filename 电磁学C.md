@@ -2604,18 +2604,25 @@ $$
 
 ### 互感和自感
 
-互感：设有两线圈相邻，若其中一个线圈得电流变化，会激发变化得磁场，从而在另一个线圈中产生感应电动势，这种现象称为互感
+互感：设有两线圈相邻，若其中一个线圈的电流变化，会激发变化的磁场，从而在另一个线圈中产生感应电动势，这种现象称为互感
 
 $$
-\mathscr{E}
-=-L\frac{\mathrm{d}I}{\mathrm{d}t}
+M
+=\frac{\varPsi}{I}
 $$
 
 自感：当一线圈中的电流变化时，它所激发的磁场通过线圈自身的磁通量(或磁通匝链数)也在变化，使线圈自身产生感应电动势，这种因线圈中电流变化而在线圈自身所引起的感应现象叫作**自感现象，**所产生的电动势称为**自感电动势**.
 
+
+
 $$
 \varPsi
 =LI
+$$
+
+$$
+\mathscr{E}
+=-L\frac{\mathrm{d}I}{\mathrm{d}t}
 $$
 
 $L$ 为比例系数，称为自感系数，简称自感. $L$ 与线圈中电流无关，仅由线圈的大小，几何形状以及匝数所确定.
@@ -2773,22 +2780,34 @@ $$
 
 推导：
 
+把每个宏观体积元内的分子看成完全一样的电流环，即环具有相同的面积 $a$ 和取向（可用矢量面元 $\vec{a} $表示），环内具有相同的电流 $I$，从而具有相同的磁矩 $\vec{m}_{分子}=I\vec{a}$.
+
+设单位体积内的分子环流数为 $n$，于是磁介质中的磁化强度为：
+
+$$
+\vec{M}
+=\frac{\sum{\vec{m}_{分子}}}{\Delta V}
+=n\vec{m}_{分子}
+=nI\vec{a}
+$$
+
+设想在磁介质中划出任意一宏观面 $S$ 来考察有无分子电流通过它
+
+令 $S$ 的周界线为 $L$
+
+介质中的分子环流可分为三类：第一类不与 $S$ 相交；第二类整个被 $S$ 所切，即与 $S$ 两次相交；第三类被 $L$ 穿过，与 $S$ 相交一次。前两类对通过 $S$ 面的总电流没有贡献，我们只需要考虑第三类，即被 $L$ 穿过的分子环流
+
+在周界线 $L$ 上任取一段线元 $\mathrm{d}\vec{l} $，考虑穿过它的分子环流情况
+
+以此 $\mathrm{d}\vec{l} $ 为轴线，$\vec{a}$ 为底面作一柱体（可能是斜柱体），其体积为 $a\cos\theta\mathrm{d}l $（$\theta$ 是 $\vec{a} $ 与 $\mathrm{d}\vec{l}$ 的夹角）。凡中心在此柱体内的分子环流都被 $\mathrm{d}\vec{l}$ 穿过，这样的分子环流共有 $na\cos\theta\mathrm{d}l$ 个，每个分子环流贡献一个通过面 $S$ 的电流 $I$，故被线元 $\mathrm{d}\vec{l} $ 穿过的所有分子环流贡献的总电流为 $nIa\cos\theta\mathrm{d}l=nI\vec{a}\cdot\mathrm{d}\vec{l}=n\vec{m}_{分子}\cdot\mathrm{d}\vec{l}=\vec{M}\cdot\mathrm{d}\vec{l} $。最后，沿闭合回路对 $\mathrm{d}\vec{l} $ 积分，得到通过以 $L$ 为边界的面 $S$ 的全部分子电流的代数和 $\sum I'$
+
+这就是与电介质公式相对应的磁介质公式，它反映了磁介质中磁化电流 $I'$ 的分布与磁化强度的关系
+
+
 有磁介质时的磁感应强度：
 
 $$
 \vec{B}=\vec{B}_0+\vec{B}'
-$$
-
-推导：
-
-假设：每个宏观体积元内的分子看作完全一样的电流环，即有相同的面积$a$取向，环内有相同的电流$I,$从而有相同的磁矩$\vec{m}_{分子}=I\vec{a} $
-
-$$
-\vec{m}_{分子}=I\vec{a}
-$$
-
-$$
-\sum \vec{m}_{分子} =nI\vec{a}=\vec{M}
 $$
 
 设磁介质表面单位长度上的磁化电流为 $i'$($i'$称作面磁化电流密度)
@@ -2796,6 +2815,8 @@ $$
 $$
 \vec{i}~'=\vec{M}\times\vec{e}_n
 $$
+
+上式反映了磁介质表面磁化电流密度与磁化强度的关系
 
 磁场强度矢量：
 
@@ -2847,7 +2868,7 @@ $$
 
 故要求出 $H.$
 
-由磁介质中得安培环路定理:$\oint\limits_L \vec{H}\cdot\mathrm{d}\vec{l}=\sum\limits_{(L内)} I_0 ,$有：
+由磁介质中的安培环路定理:$\oint\limits_L \vec{H}\cdot\mathrm{d}\vec{l}=\sum\limits_{(L内)} I_0 ,$有：
 
 $$
 2\pi RH=NI
@@ -3026,6 +3047,8 @@ $$
 磁阻：$R_{mi}=\frac{l_i}{\mu_0\mu_i S_i}$
 
 磁势降落：$H_il_i=\varPhi_B R_{mi}$
+
+磁导率：$\mu_0\mu_i$
 
 磁路定理：
 
@@ -3382,7 +3405,7 @@ $$
 =\frac{1}{2}U_0I_0\cos\varphi
 $$
 
-纯电阻：
+纯电阻（$\varphi_R=0$）：
 
 $$
 \bar{P}
@@ -3398,7 +3421,7 @@ $$
 =I^2R
 $$
 
-纯电容或纯电感元件：
+纯电容或纯电感元件（$\varphi_C=-\frac{\pi}{2},\varphi_L=\frac{\pi}{2} $）：
 
 $$
 \bar{P}
@@ -3568,6 +3591,171 @@ $$
 $\delta$ 和 $\tan\delta$ 越大，表示损耗越大
 
 
+### 串联谐振现象
+
+发生谐振时的频率 $f_0$ 称为谐振频率
+
+总电压为：
+
+$$
+U=\sqrt{U_R^2+(U_L-U_C)^2}
+$$
+
+由欧姆定律：
+
+$$
+\begin{cases}
+U_R=IZ_R=IR \\
+U_L=IZ_L=I\omega L \\
+U_C=IZ_C=I\frac{1}{\omega C}
+\end{cases}
+$$
+
+得：
+
+$$
+U=I\sqrt{R^2+(\omega L-\frac{1}{\omega C})^2}
+$$
+
+或：
+
+$$
+I=\frac{U}{\sqrt{R^2+(\omega L-\frac{1}{\omega C})^2}}
+$$
+
+串联电路的总阻抗为：
+
+$$
+Z
+=\frac{U}{I}
+=\sqrt{R^2+(\omega L-\frac{1}{\omega C})^2}
+$$
+
+$u(i)$ 与 $i(t)$ 的相位差为：
+
+$$
+\varphi
+=\arctan \frac{U_L-U_C}{U_R}
+=\arctan\frac{\omega L-\frac{1}{\omega C}}{R}
+$$
+
+当外加电动势的角频率 $\omega$ 满足以下条件时发生谐振：
+
+$$
+\omega L=\frac{1}{\omega C} 或 \omega^2=\frac{1}{LC}
+$$
+
+谐振角频率为：
+
+$$
+\omega_0
+=\frac{1}{\sqrt{LC}}=2\pi f_0
+$$
+
+谐振频率为：
+
+$$
+f_0\
+=
+\frac{1}{2\pi\sqrt{LC}}
+$$
+
+谐振时的阻抗和电流：
+
+$$
+Z_m=R,I_M=\frac{U}{R}
+$$
+
+谐振时：
+
+$$
+\varphi=0
+$$
+
+在交流电的一个周期 $T$ 内，电阻元件中损耗的能量为：
+
+$$
+W_R
+=RI^2T
+$$
+
+其中，$I=\frac{I_0}{\sqrt{2}} $ 是电流的有效值.
+
+谐振电路中电感和电容元件中储存的总能量为：
+
+$$
+W_S
+=\frac{1}{2}Li^2(t)+\frac{1}{2}Cu^2(t)
+$$
+
+设：
+$$
+i(t)
+=I_0\cos\omega t
+$$
+
+则：
+
+$$
+u_C(t)
+=\frac{I_0}{\omega C}\cos(\omega t-\frac{\pi}{2})
+=\frac{I_0}{\omega C}\sin\omega t
+$$
+
+于是：
+
+$$
+W_S
+=\frac{1}{2}LI_0^2\cos^2\omega t+\frac{1}{2}C\frac{I_0^2}{(\omega C)^2}\sin^2\omega t
+=\frac{1}{2}I_0^2(L\cos^2\omega t+\frac{1}{\omega^2 C}\sin^2\omega t)
+$$
+
+在谐振状态下，$\omega=\omega_0=\frac{1}{\sqrt{LC}} $
+
+从而：
+
+$$
+W_S
+=\frac{1}{2}LI_0^2=LI^2(或\frac{I^2}{\omega_0^2 C})
+$$
+
+这时 $W_S$ 不再随时间变化，也就是说，谐振电路不再与外界交换无功功率
+
+一个谐振电路的品质因数（$Q$ 值）的定义为：
+
+$$
+Q
+=2\pi\frac{W_S}{W_R}
+$$
+
+即 $Q$ 值等于谐振电路中储存的能量与每个周期内消耗的能量之比的 $2\pi $ 倍. $Q$ 值越高，就意味着相对于储存的能量来说所需付出的能量耗散越少，也就是说谐振电路的效率就越高
+
+谐振电路 $Q$ 值得倒数是电感、电容元件 $Q$ 值的倒数之和
+
+频率的选择性和 $Q$ 值的第二种意义：
+
+规定在谐振峰两边 $I$ 的值等于最大值 $I_M$ 的 $\frac{1}{\sqrt{2}} $ 处频率之间的宽度为**通频带宽度**，它的大小等于其边缘频率 $f_1,f_2$ 之差 $\Delta f$，即：
+
+$$
+\Delta f =f_2-f_1
+$$
+
+谐振电路的通频带宽度 $\Delta f$ 反比于谐振电路的 $Q$ 值. $Q$ 越大（相应地，损耗也越小），谐振电路的频率选择性也越强，这就是 $Q$ 值的第二种意义
+
+
+谐振时，$U_C$ 或 $U_L$ 与 $U$ 之比恰等于 $Q$，这是 $Q$ 值的第三种意义
+
+
+
+
+
+
+
+
+
+
+
+
 # 麦克斯韦电磁理论和电磁波
 
 由库仑定律和场强叠加原理可得出静电场的两条重要定理：
@@ -3575,7 +3763,7 @@ $\delta$ 和 $\tan\delta$ 越大，表示损耗越大
 电场的高斯定理：
 
 $$
-\iint\limits_S \vec{D}\cdot\mathrm{d}\vec{S}=q_0
+\oiint\limits_S \vec{D}\cdot\mathrm{d}\vec{S}=q_0
 $$
 
 静电场的环路定理：
@@ -3733,6 +3921,71 @@ $$
 \nabla \times\vec{H}=\vec{j}_0+\frac{\partial\vec{D}}{\partial t}
 \end{cases}
 $$
+
+电磁波的产生和传播：
+
+LCR 电路中的电容器充电后，电荷 $q$ 满足的微分方程为：
+
+$$
+L\frac{\mathrm{d}^2q}{\mathrm{d}t^2}+R\frac{\mathrm{d}q}{\mathrm{d}t}+\frac{q}{C}=0
+$$
+
+在电阻 $R$ 较小的情况下，它的解具有阻尼振荡的形式：
+
+$$
+q=q_0e^{-\alpha t}\cos(\omega_0 t+\varphi)
+$$
+
+这里，
+
+$$
+\alpha
+=\frac{R}{2L},\omega_0=\frac{1}{\sqrt{LC}}或f_0=\frac{\omega_0}{2\pi}=\frac{1}{\sqrt{LC}}
+$$
+
+振荡偶极子：
+
+电磁波的性质：
+
+（1）电磁波是横波
+
+（2）电场强度矢量与磁场强度矢量垂直
+
+（3）$\vec{E} $ 和 $\vec{H} $ 同相位，并且在任何时刻、任何地点，$\vec{E},\vec{H},\vec{k} $ 三个矢量总构成右旋系，即 $\vec{E}\times\vec{H} $ 的方向总是沿着传播方向 $\vec{k} $ 
+
+（4）$\vec{E} $ 和 $\vec{H}$ 的幅值成比例：
+
+$$
+\sqrt{\varepsilon\varepsilon_0}
+=E_0\sqrt{\mu\mu_0}H_0
+$$
+
+（5）电磁波的传播速率为：
+
+$$
+v
+=\frac{1}{\sqrt{\varepsilon\varepsilon_0\mu\mu_0}}
+$$
+
+在真空中，$\varepsilon=1,\mu=1,$ 电磁波在真空中的传播速度为：
+
+$$
+c
+=\frac{1}{\sqrt{\varepsilon_0\mu_0}}
+$$
+
+简谐波平均能流密度为：
+
+$$
+\bar{S}
+=\frac{1}{2}E_0H_0
+$$
+
+电磁波中的能流密度正比于电场或磁场振幅的平方
+
+
+
+
 
 
 

@@ -1,10 +1,8 @@
 import numpy as np
 
-print(2*np.pi*np.sqrt( 1/9.7 ))
-
-L = np.array([0.98, 0.98, 0.98, 0.98, 0.98]) # 单位 m
+L = np.array([100.20, 100.30, 100.30, 100.20, 100.15])*1e-2 # 单位 m
 d = np.array([2.776, 2.770, 2.778, 2.776, 2.770]) * 1e-2 # 单位 m
-t = np.array([1.93]) # 单位 s
+t = np.array([1.9287, 1.8991, 1.9175, 1.9194, 1.9364]) # 单位 s
 
 L_bar = np.average(L)
 d_bar = np.average(d)
@@ -28,6 +26,12 @@ u_A_L = u_A(t_factor, L, 5, L_bar)
 u_A_d = u_A(t_factor, d, 5, d_bar)
 u_A_t = u_A(t_factor, t, 5, t_bar)
 
+
+print(f"u_A for L,d,t")
 print(u_A_L)
 print(u_A_d)
 print(u_A_t)
+
+E_g = np.sqrt( ( (8.5*1e-4)**2 + (4.9*1e-5)**2/4 )/(1.0023+2.774*1e-2/2)**2 + ( 4*(1.9*1e-2)**2 )/(1.92022**2) )
+
+print(E_g)
