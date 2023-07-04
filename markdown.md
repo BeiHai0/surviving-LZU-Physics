@@ -37,3 +37,8 @@ $\perp$
 
 
 $\mathscr{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$
+
+|A|B|C|
+|:---:|:---:|:---:|
+|x|y|z|
+|a|b|c|
